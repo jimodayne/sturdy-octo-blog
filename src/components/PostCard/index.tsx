@@ -7,10 +7,10 @@ const PostCard = (props: PostCardProps) => {
     const { id, title, description } = props
     return (
         <Link key={id} href={`/${id}`}>
-            <a className={styles.card}>
-                <h2>{title} </h2>
+            <div className="mb-6 cursor-pointer">
+                <h2 className="font-bold text-xl">{title} </h2>
                 <p>{description}</p>
-            </a>
+            </div>
         </Link>
     )
 }
