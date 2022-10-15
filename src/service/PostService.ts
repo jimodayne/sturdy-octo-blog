@@ -18,6 +18,9 @@ const PostService = {
     updateDetail: async (id: string, data: IPost): Promise<ResponseData<IPost>> => {
         return await putWithPath(`/posts/${id}`, {}, data)
     },
+    create: async (data: IPost): Promise<ResponseData<IPost>> => {
+        return await postWithPath('/posts', {}, data)
+    },
 }
 
 export default PostService
