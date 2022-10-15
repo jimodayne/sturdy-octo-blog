@@ -1,5 +1,5 @@
 import { ResponseData } from 'src/constants'
-import { getWithPath } from 'src/utils/http'
+import { getWithPath, postWithPath, putWithPath } from 'src/utils/http'
 
 export interface IPost {
     content: string
@@ -14,6 +14,9 @@ const PostService = {
     },
     getDetail: async (id: string): Promise<ResponseData<IPost>> => {
         return await getWithPath(`/posts/${id}`)
+    },
+    updateDetail: async (id: string, data: IPost): Promise<ResponseData<IPost>> => {
+        return await putWithPath(`/posts/${id}`, {}, data)
     },
 }
 

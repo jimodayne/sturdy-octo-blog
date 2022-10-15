@@ -1,12 +1,14 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import db from 'src/utils/firestore'
-import { collection, getDocs } from 'firebase/firestore/lite'
+import { db } from 'src/utils/firebase'
+import { collection, getDocs, getFirestore } from 'firebase/firestore'
 import { ResponseData } from 'src/constants'
 
 type Data = {
     name: string
 }
+
+// const db = getFirestore()
 
 export default async function handler(
     req: NextApiRequest,
