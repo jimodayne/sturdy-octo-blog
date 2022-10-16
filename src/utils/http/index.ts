@@ -68,6 +68,13 @@ export const putWithUrl = (url: string, params?: {}, data?: {}, options?: {}) =>
     }
     return localFetch(url, params, exOptions)
 }
+export const deleteWithUrl = (url: string, params?: {}, options?: {}) => {
+    const exOptions = {
+        method: 'DELETE',
+        ...options,
+    }
+    return localFetch(url, params, exOptions)
+}
 
 export const getWithPath = (path: string, params?: {}, options?: {}) => {
     return getWithUrl(DOMAIN_API_URL + path, params, options)
@@ -79,6 +86,10 @@ export const postWithPath = (path: string, params?: {}, data?: {}, options?: {})
 
 export const putWithPath = (path: string, params?: {}, data?: {}, options?: {}) => {
     return putWithUrl(DOMAIN_API_URL + path, params, data, options)
+}
+
+export const deleteWithPath = (path: string, params?: {}, options?: {}) => {
+    return deleteWithUrl(DOMAIN_API_URL + path, params, options)
 }
 
 export const toJson = (response: Response) => {

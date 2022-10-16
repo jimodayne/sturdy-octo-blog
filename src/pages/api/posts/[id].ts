@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { db } from 'src/utils/firebase'
-import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore'
+import { doc, getDoc, updateDoc, setDoc, Timestamp, deleteDoc } from 'firebase/firestore'
 import { ResponseData } from 'src/constants'
 
 type Data = {
@@ -32,7 +32,12 @@ export default async function handler(
     if (method === 'PUT') {
         // Update post detail to database
         const docRef = doc(db, 'posts', req.query.id as string)
-        await updateDoc(docRef, req.body)
+        await updateDoc(docRef, { ...req.body, updatedAt: Timestamp.fromDate(new Date()) })
         res.status(200).json({ message: 'success', code: 0, data: req.body })
+    }
+    if (method === 'DELETE') {
+        // Delete post from database
+        await deleteDoc(doc(db, 'posts', req.query.id as string))
+        res.status(200).json({ message: 'success', code: 0, data: null })
     }
 }

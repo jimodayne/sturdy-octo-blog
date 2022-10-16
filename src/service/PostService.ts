@@ -1,11 +1,16 @@
 import { ResponseData } from 'src/constants'
 import { getWithPath, postWithPath, putWithPath } from 'src/utils/http'
 
+export type PostStatus = 'draft' | 'published' | 'deleted'
 export interface IPost {
     content: string
     title: string
     id: string
     description: string
+    source: string
+    createdAt: string
+    updatedAt: string
+    status: PostStatus
 }
 
 const PostService = {
@@ -20,6 +25,9 @@ const PostService = {
     },
     create: async (data: IPost): Promise<ResponseData<IPost>> => {
         return await postWithPath('/posts', {}, data)
+    },
+    delete: async (id: string): Promise<ResponseData<null>> => {
+        return await postWithPath(`/posts/${id}`)
     },
 }
 

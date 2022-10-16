@@ -1,6 +1,7 @@
-import { Form, Input, Button, FormInstance } from 'antd'
+import { Form, Input, Button, FormInstance, Switch } from 'antd'
 import dynamic from 'next/dynamic'
 import { IPost } from 'src/service/PostService'
+import Toggle from '../Toggle'
 
 interface PostFormProps {
     handleSubmit: (values: IPost) => void
@@ -22,10 +23,24 @@ const PostForm = (props: PostFormProps) => {
             onFinish={handleSubmit}
             form={form}
         >
-            <Form.Item label="Title" name="title">
+            <Form.Item
+                label="Title"
+                name="title"
+                rules={[{ required: true, message: 'Please input title' }]}
+            >
                 <Input />
             </Form.Item>
-            <Form.Item label="Description" name="description">
+            <Form.Item
+                label="Description"
+                name="description"
+                rules={[{ required: true, message: 'Please input description' }]}
+            >
+                <Input />
+            </Form.Item>
+            <Form.Item label="Status" name="status">
+                <Toggle />
+            </Form.Item>
+            <Form.Item label="Source" name="source">
                 <Input />
             </Form.Item>
             <Form.Item label="Content" name="content">

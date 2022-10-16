@@ -26,6 +26,20 @@ const columns = [
         dataIndex: 'description',
         key: 'description',
     },
+    {
+        title: 'Created At',
+        dataIndex: 'createdAt',
+        key: 'createdAt',
+        render: (timestramp?: { seconds: number; nanoseconds: number }) =>
+            timestramp ? new Date(timestramp.seconds * 1000).toLocaleString() : '',
+    },
+    {
+        title: 'Updated At',
+        dataIndex: 'updatedAt',
+        key: 'updatedAt',
+        render: (timestramp?: { seconds: number; nanoseconds: number }) =>
+            timestramp ? new Date(timestramp.seconds * 1000).toLocaleString() : '',
+    },
 ]
 
 const CMSPostsView = () => {

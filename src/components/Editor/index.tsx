@@ -11,14 +11,16 @@ export default function MyEditor(props: MyEditorProps) {
     const { value, onChange } = props
 
     return (
-        <CKEditor
-            editor={ClassicEditor}
-            data={value}
-            onChange={(event: any, editor: any) => {
-                const data = editor.getData()
-                // console.log({ event, editor, data })
-                onChange(data)
-            }}
-        />
+        <div className="post-content-wrapper">
+            <CKEditor
+                editor={ClassicEditor}
+                data={value}
+                onChange={(event: any, editor: any) => {
+                    const data = editor.getData()
+                    // console.log({ event, editor, data })
+                    onChange(data)
+                }}
+            />
+        </div>
     )
 }

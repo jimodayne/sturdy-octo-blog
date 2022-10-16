@@ -6,3 +6,5 @@ export interface ResponseData<T> {
     total?: number
     code: number
 }
+
+export const PAGE_SIZE = 10

@@ -19,7 +19,7 @@ a {
     box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
     html {
         color-scheme: dark;
     }
@@ -27,7 +27,7 @@ a {
         color: white;
         background: black;
     }
-}
+} */
 
 .lds-dual-ring {
     display: inline-block;
@@ -56,5 +56,41 @@ a {
     }
     100% {
         transform: rotate(360deg);
+    }
+}
+
+.ck-editor__editable_inline {
+    min-height: 320px;
+}
+
+.post-content-wrapper h4 {
+    font-size: 1.25rem;
+}
+.post-content-wrapper h3 {
+    font-size: 1.5rem;
+}
+.post-content-wrapper h2 {
+    font-size: 1.75rem;
+}
+
+.post-content-wrapper p + p,
+h1,
+h2,
+h3 {
+    margin-top: 1rem;
+}
+
+.post-content-wrapper h1,
+h2,
+h3 {
+    margin-bottom: 1rem;
+}
+
+/* media dark */
+@media (prefers-color-scheme: dark) {
+    .post-content-wrapper h1,
+    h2,
+    h3 {
+        color: rgb(229 231 235);
     }
 }
