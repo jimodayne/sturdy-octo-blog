@@ -66,7 +66,6 @@ const CMSLayout = (props: CMSLayoutProps) => {
             {domLoaded && (
                 <ErrorBoundary>
                     <Layout style={{ minHeight: '100vh' }}>
-                        {loading && <Loading />}
                         {hasSider && (
                             <Sider>
                                 <div className="logo" />
@@ -77,16 +76,21 @@ const CMSLayout = (props: CMSLayoutProps) => {
                                 </div>
                             </Sider>
                         )}
-                        <Layout className="site-layout">
-                            {hasHeader && (
-                                <Header className="flex justify-end items-center px-2    site-layout-background">
-                                    <Button type="primary" danger ghost onClick={handleLogout}>
-                                        Logout
-                                    </Button>
-                                </Header>
-                            )}
-                            <Content className="m-4">{props.children}</Content>
-                        </Layout>
+
+                        {loading ? (
+                            <Loading />
+                        ) : (
+                            <Layout className="site-layout">
+                                {hasHeader && (
+                                    <Header className="flex justify-end items-center px-2    site-layout-background">
+                                        <Button type="primary" danger ghost onClick={handleLogout}>
+                                            Logout
+                                        </Button>
+                                    </Header>
+                                )}
+                                <Content className="m-4">{props.children}</Content>
+                            </Layout>
+                        )}
                     </Layout>
                 </ErrorBoundary>
             )}

@@ -1,7 +1,8 @@
 import { message } from 'antd'
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth'
-import { auth } from 'src/utils/firebase'
+import { auth } from 'src/utils/firebase/frontend'
 import { useAuthState } from 'react-firebase-hooks/auth'
+import { useEffect } from 'react'
 
 export interface UserRequest {
     email: string
@@ -21,6 +22,19 @@ const useAuth = () => {
     }
 
     const [user, loading, error] = useAuthState(auth)
+
+    const getUserToken = async () => {
+        const token = await user?.getIdToken()
+        if (window) {
+            localStorage.setItem('token', token || '')
+        }
+    }
+
+    useEffect(() => {
+        if (user) {
+            getUserToken()
+        }
+    }, [user])
 
     const logout = async () => {
         await signOut(auth)

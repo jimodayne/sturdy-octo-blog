@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { db } from 'src/utils/firebase'
+import { auth, db } from 'src/utils/firebase/backend'
+
 import {
     collection,
     getDocs,
@@ -38,14 +39,12 @@ export default async function handler(
     if (method === 'GET') {
         // GET post from database
         const page = req.query.page ? Number(req.query.page) : 1
-        const postsCol = collection(db, 'posts')
-        const q = query(
-            postsCol,
-            orderBy('createdAt', 'desc'),
-            limit(10),
-            // startAt(0),
-        ).withConverter(postConverter)
-        const postsSnapshot = await getDocs(q)
+        const postsSnapshot = await db
+            .collection('posts')
+            .orderBy('createdAt', 'desc')
+            .limit(10)
+            .get()
+
         const postsList = postsSnapshot.docs.map(doc => {
             return {
                 ...doc.data(),
@@ -62,14 +61,33 @@ export default async function handler(
     }
     if (method === 'POST') {
         // Create new post
+        const token = req.headers.authorization
+        if (!token) {
+            res.status(401).json({
+                data: null,
+                message: 'Unauthorized',
+                code: 401,
+            })
+            return
+        }
+        // TODO: verify token using firebase admin
+        const { uid } = await auth.verifyIdToken(token)
+        if (!uid) {
+            res.status(401).json({
+                data: null,
+                message: 'Unauthorized',
+                code: 401,
+            })
+            return
+        }
+
         const { title, content, description, source, status } = req.body as IPost
-        const postsCol = collection(db, 'posts')
-        await addDoc(postsCol, {
-            title,
-            content,
-            source,
-            status,
-            description,
+        await db.collection('posts').add({
+            title: title || '',
+            content: content || '',
+            source: source || '',
+            status: status || false,
+            description: description || '',
             createdAt: Timestamp.fromDate(new Date()),
         })
         res.status(200).json({ message: 'success', code: 0, data: req.body })

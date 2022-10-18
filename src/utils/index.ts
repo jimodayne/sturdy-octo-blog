@@ -9,6 +9,9 @@ export const asyncAction = (title: string, action: Function) => {
         .catch(() => {
             message.error(title + ' failed')
         })
+        .finally((res: any) => {
+            return res
+        })
 }
 
 export const formatDate = (timestramp?: { seconds: number; nanoseconds: number }) => {

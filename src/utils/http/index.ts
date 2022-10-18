@@ -34,8 +34,16 @@ export const buildURLWithParam = (url: string, query?: any) => {
     return url + '?' + buildParams(query)
 }
 
-export function localFetch(url: string, params?: {}, options?: {}): Promise<ResponseData<any>> {
-    const exOptions = { credentials: 'include', ...options } as any
+export function localFetch(url: string, params?: {}, options?: any): Promise<ResponseData<any>> {
+    const headers = {
+        ...(options?.headers || {}),
+        Authorization: `Bearer ${window ? localStorage.getItem('token') : ''}`,
+    }
+    const exOptions = {
+        ...options,
+        credentials: 'include',
+        headers,
+    } as any
 
     const urlWithParam = buildURLWithParam(url, params)
     return fetch(urlWithParam, exOptions).then(toJson).then(validResp)

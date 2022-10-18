@@ -36,3 +36,4 @@ yarn-error.log*
 next-env.d.ts
 firebase-debug.log
 .gitignore
+src/utils/firebase/backend/blogs-2c885-firebase-adminsdk-9ur27-7b301628e8.json
