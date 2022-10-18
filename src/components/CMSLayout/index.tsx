@@ -7,6 +7,7 @@ import Link from 'next/link'
 import useAuth from 'src/hooks/useAuth'
 import { useRouter } from 'next/router'
 import Loading from '../Loading'
+import Head from 'next/head'
 
 const { Header, Content, Sider } = Layout
 
@@ -58,6 +59,9 @@ const CMSLayout = (props: CMSLayoutProps) => {
 
     return (
         <>
+            <Head>
+                <title>Sturdy Octo Blog CMS</title>
+            </Head>
             {domLoaded && (
                 <Layout style={{ minHeight: '100vh' }}>
                     {loading && <Loading />}

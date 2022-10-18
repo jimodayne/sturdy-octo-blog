@@ -58,13 +58,6 @@
   dependencies:
     ckeditor5 "^35.2.0"
 
-"@ckeditor/ckeditor5-alignment@^35.2.0":
-  version "35.2.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-alignment/-/ckeditor5-alignment-35.2.0.tgz#035de26250b2d5cfb63b1cfe8aaf973360c1497f"
-  integrity sha512-dLDEPoFPyVInphgcwcdXt5c78UiJCa6vu02/VgdMIgUHnGTykuLpDF6X/s35SYCPjrcs5mYv3HyaJd8UcbmkNg==
-  dependencies:
-    ckeditor5 "^35.2.0"
-
 "@ckeditor/ckeditor5-autoformat@^35.2.0":
   version "35.2.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-autoformat/-/ckeditor5-autoformat-35.2.0.tgz#b6991c64adf96361f5949dbb9f70e658c2c51f6d"
@@ -101,34 +94,6 @@
     "@ckeditor/ckeditor5-easy-image" "^35.2.0"
     "@ckeditor/ckeditor5-editor-classic" "^35.2.0"
     "@ckeditor/ckeditor5-essentials" "^35.2.0"
-    "@ckeditor/ckeditor5-heading" "^35.2.0"
-    "@ckeditor/ckeditor5-image" "^35.2.0"
-    "@ckeditor/ckeditor5-indent" "^35.2.0"
-    "@ckeditor/ckeditor5-link" "^35.2.0"
-    "@ckeditor/ckeditor5-list" "^35.2.0"
-    "@ckeditor/ckeditor5-media-embed" "^35.2.0"
-    "@ckeditor/ckeditor5-paragraph" "^35.2.0"
-    "@ckeditor/ckeditor5-paste-from-office" "^35.2.0"
-    "@ckeditor/ckeditor5-table" "^35.2.0"
-    "@ckeditor/ckeditor5-typing" "^35.2.0"
-
-"@ckeditor/ckeditor5-build-decoupled-document@^35.2.0":
-  version "35.2.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-decoupled-document/-/ckeditor5-build-decoupled-document-35.2.0.tgz#0e1707c29dd9048ae75df6c60e93001276ec5622"
-  integrity sha512-BksSfILtgZNxpb/tD0G8EAAumImaLcaB3FvXgaKJA+YVj4cHM+wfGvrKLjsUS72r/qmsyyHr2Itafm5E+YL99g==
-  dependencies:
-    "@ckeditor/ckeditor5-adapter-ckfinder" "^35.2.0"
-    "@ckeditor/ckeditor5-alignment" "^35.2.0"
-    "@ckeditor/ckeditor5-autoformat" "^35.2.0"
-    "@ckeditor/ckeditor5-basic-styles" "^35.2.0"
-    "@ckeditor/ckeditor5-block-quote" "^35.2.0"
-    "@ckeditor/ckeditor5-ckbox" "^35.2.0"
-    "@ckeditor/ckeditor5-ckfinder" "^35.2.0"
-    "@ckeditor/ckeditor5-cloud-services" "^35.2.0"
-    "@ckeditor/ckeditor5-easy-image" "^35.2.0"
-    "@ckeditor/ckeditor5-editor-decoupled" "^35.2.0"
-    "@ckeditor/ckeditor5-essentials" "^35.2.0"
-    "@ckeditor/ckeditor5-font" "^35.2.0"
     "@ckeditor/ckeditor5-heading" "^35.2.0"
     "@ckeditor/ckeditor5-image" "^35.2.0"
     "@ckeditor/ckeditor5-indent" "^35.2.0"
@@ -197,14 +162,6 @@
     ckeditor5 "^35.2.0"
     lodash-es "^4.17.15"
 
-"@ckeditor/ckeditor5-editor-decoupled@^35.2.0":
-  version "35.2.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-editor-decoupled/-/ckeditor5-editor-decoupled-35.2.0.tgz#5d21736897e06fdfbc48f9a47c92b213e62fa854"
-  integrity sha512-7DljtIR7Ge8FZpQQS44lyneFRsDUTa81M9Qq1qmt8jPXdawDNvm8FepdjRqUJPpiGTM5KklJJqCRazzikhNKVg==
-  dependencies:
-    ckeditor5 "^35.2.0"
-    lodash-es "^4.17.15"
-
 "@ckeditor/ckeditor5-engine@^35.2.0":
   version "35.2.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-engine/-/ckeditor5-engine-35.2.0.tgz#6703b1c4e7f4f7e09b2d9ed8a95472086e7a3d4c"
@@ -226,13 +183,6 @@
   version "35.2.0"
   resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-essentials/-/ckeditor5-essentials-35.2.0.tgz#65a0e2573186fc63bdefa6d2758bb7ac6b0e86fb"
   integrity sha512-5G2tq5Rm54vfBpgYEMvpw5VKrAJvUXEGFhKKxcsqTuAKs5jaXforg/Jq0IyUtO0OtU78mw8Z8ZsNzsjHirFyGw==
-  dependencies:
-    ckeditor5 "^35.2.0"
-
-"@ckeditor/ckeditor5-font@^35.2.0":
-  version "35.2.0"
-  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-font/-/ckeditor5-font-35.2.0.tgz#0bb556efda99d5472cc9f925ccab25047deef24f"
-  integrity sha512-pSTkRKoUCapzbpeyQmiCU9kh7pL8mZQPSlvW5hHIPND1yA1hzuIfKzNayjzresmmODm0C5p0mtPEp47x/VJ2bQ==
   dependencies:
     ckeditor5 "^35.2.0"
 
@@ -1567,6 +1517,19 @@ chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+ckeditor4-integrations-common@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ckeditor4-integrations-common/-/ckeditor4-integrations-common-1.0.0.tgz#a8afc33b94877b4d01362c7c73aa9eec162b2d20"
+  integrity sha512-OAoQT/gYrHkg0qgzf6MS/rndYhq3SScLVQ3rtXQeuCE8ju7nFHg3qZ7WGA2XpFxcZzsMP6hhugXqdel5vbcC3g==
+
+ckeditor4-react@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ckeditor4-react/-/ckeditor4-react-4.1.0.tgz#5f8a3237e6cf1a3404f3e595d6b996d69154c511"
+  integrity sha512-94BgPvW3capleaK9ifRH1RRxTbMG1cbRHkB1abHrmHsbruR0gLoP3CXWa6I2iwrV7ElKM+RIdIb+RYMSXYVxjQ==
+  dependencies:
+    ckeditor4-integrations-common "^1.0.0"
+    prop-types "^15.8.1"
 
 ckeditor5@^35.2.0:
   version "35.2.0"

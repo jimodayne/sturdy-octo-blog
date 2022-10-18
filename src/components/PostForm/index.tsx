@@ -1,16 +1,12 @@
 import { Form, Input, Button, FormInstance, Switch } from 'antd'
-import dynamic from 'next/dynamic'
 import { IPost } from 'src/service/PostService'
 import Toggle from '../Toggle'
+import Editor from 'src/components/Editor'
 
 interface PostFormProps {
     handleSubmit: (values: IPost) => void
     form: FormInstance<any>
 }
-
-const Editor: any = dynamic(() => import('src/components/Editor'), {
-    ssr: false,
-})
 
 const PostForm = (props: PostFormProps) => {
     const { handleSubmit, form } = props
