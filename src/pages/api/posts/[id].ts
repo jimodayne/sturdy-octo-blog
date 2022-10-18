@@ -35,6 +35,7 @@ export default async function handler(
             return
         }
         const { uid } = await auth.verifyIdToken(token)
+
         if (!uid) {
             res.status(401).json({
                 data: null,

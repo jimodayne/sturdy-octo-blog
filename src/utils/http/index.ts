@@ -35,10 +35,13 @@ export const buildURLWithParam = (url: string, query?: any) => {
 }
 
 export function localFetch(url: string, params?: {}, options?: any): Promise<ResponseData<any>> {
-    const headers = {
+    let headers = {
         ...(options?.headers || {}),
-        Authorization: `Bearer ${window ? localStorage.getItem('token') : ''}`,
     }
+    if (typeof window !== 'undefined') {
+        headers['Authorization'] = `Bearer ${window ? localStorage.getItem('token') : ''}`
+    }
+
     const exOptions = {
         ...options,
         credentials: 'include',
