@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { auth, db } from 'src/utils/firebase/backend'
+import { admin, auth, db } from 'src/utils/firebase/backend'
 
 import {
     collection,
@@ -63,6 +63,7 @@ export default async function handler(
         // Create new post
         const authorization = req.headers.authorization
         const token = authorization?.split(' ')[1]
+
         if (!token) {
             res.status(401).json({
                 data: null,
@@ -72,15 +73,15 @@ export default async function handler(
             return
         }
         // TODO: verify token using firebase admin
-        const { uid } = await auth.verifyIdToken(token)
-        if (!uid) {
-            res.status(401).json({
-                data: null,
-                message: 'Unauthorized',
-                code: 401,
-            })
-            return
-        }
+        // const { uid } = await auth.verifyIdToken(token)
+        // if (!uid) {
+        //     res.status(401).json({
+        //         data: null,
+        //         message: 'Unauthorized',
+        //         code: 401,
+        //     })
+        //     return
+        // }
 
         const { title, content, description, source, status } = req.body as IPost
         await db.collection('posts').add({
@@ -89,7 +90,7 @@ export default async function handler(
             source: source || '',
             status: status || false,
             description: description || '',
-            createdAt: Timestamp.fromDate(new Date()),
+            createdAt: admin.firestore.FieldValue.serverTimestamp(),
         })
         res.status(200).json({ message: 'success', code: 0, data: req.body })
     }

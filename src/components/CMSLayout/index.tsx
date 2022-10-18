@@ -69,11 +69,11 @@ const CMSLayout = (props: CMSLayoutProps) => {
                         {hasSider && (
                             <Sider>
                                 <div className="logo" />
-                                <div className="mt-8 px-8 bg-blue-500 py-3 cursor-pointer">
-                                    <Link href="/cms/posts">
+                                <Link href="/cms/posts">
+                                    <div className="mt-8 px-8 bg-blue-500 py-3 cursor-pointer">
                                         <span className="text-white">Posts</span>
-                                    </Link>
-                                </div>
+                                    </div>
+                                </Link>
                             </Sider>
                         )}
 
