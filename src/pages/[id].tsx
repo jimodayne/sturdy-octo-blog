@@ -4,10 +4,12 @@ import MainLayout from 'src/components/MainLayout'
 import PostService, { IPost } from 'src/service/PostService'
 
 interface PostDetailProps {
-    post: IPost
+    post?: IPost
 }
 const PostDetail = (props: PostDetailProps) => {
     const { post } = props
+
+    if (!post) return <MainLayout>Post not found</MainLayout>
     return (
         <>
             <Head>
@@ -36,8 +38,12 @@ const PostDetail = (props: PostDetailProps) => {
 
 export const getServerSideProps: GetServerSideProps = async context => {
     const id = context.params?.id as string
-    const { data } = await PostService.getDetail(id)
-    return { props: { post: data } }
+    if (id) {
+        const { data } = await PostService.getDetail(id)
+
+        return { props: { post: data } }
+    }
+    return { props: { post: null } }
 }
 
 export default PostDetail
