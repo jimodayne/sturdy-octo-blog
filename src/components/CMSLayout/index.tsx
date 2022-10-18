@@ -8,6 +8,7 @@ import useAuth from 'src/hooks/useAuth'
 import { useRouter } from 'next/router'
 import Loading from '../Loading'
 import Head from 'next/head'
+import ErrorBoundary from 'src/components/ErrorBoundary'
 
 const { Header, Content, Sider } = Layout
 
@@ -63,29 +64,31 @@ const CMSLayout = (props: CMSLayoutProps) => {
                 <title>Sturdy Octo Blog CMS</title>
             </Head>
             {domLoaded && (
-                <Layout style={{ minHeight: '100vh' }}>
-                    {loading && <Loading />}
-                    {hasSider && (
-                        <Sider>
-                            <div className="logo" />
-                            <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                                <Menu.Item key={'1'}>
-                                    <Link href="/cms/posts">Posts</Link>
-                                </Menu.Item>
-                            </Menu>
-                        </Sider>
-                    )}
-                    <Layout className="site-layout">
-                        {hasHeader && (
-                            <Header className="flex justify-end items-center px-2    site-layout-background">
-                                <Button type="primary" danger ghost onClick={handleLogout}>
-                                    Logout
-                                </Button>
-                            </Header>
+                <ErrorBoundary>
+                    <Layout style={{ minHeight: '100vh' }}>
+                        {loading && <Loading />}
+                        {hasSider && (
+                            <Sider>
+                                <div className="logo" />
+                                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+                                    <Menu.Item key={'1'}>
+                                        <Link href="/cms/posts">Posts</Link>
+                                    </Menu.Item>
+                                </Menu>
+                            </Sider>
                         )}
-                        <Content className="m-4">{props.children}</Content>
+                        <Layout className="site-layout">
+                            {hasHeader && (
+                                <Header className="flex justify-end items-center px-2    site-layout-background">
+                                    <Button type="primary" danger ghost onClick={handleLogout}>
+                                        Logout
+                                    </Button>
+                                </Header>
+                            )}
+                            <Content className="m-4">{props.children}</Content>
+                        </Layout>
                     </Layout>
-                </Layout>
+                </ErrorBoundary>
             )}
         </>
     )
