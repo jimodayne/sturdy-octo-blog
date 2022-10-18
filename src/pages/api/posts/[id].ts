@@ -29,7 +29,8 @@ export default async function handler(
             res.status(404).json({ message: 'No such document!', code: 404, data: null })
         }
     } else {
-        const token = req.headers.authorization
+        const authorization = req.headers.authorization
+        const token = authorization?.split(' ')[1]
         if (!token) {
             res.status(401).json({ message: 'Unauthorized', code: 401, data: null })
             return
@@ -49,7 +50,7 @@ export default async function handler(
     if (method === 'PUT') {
         // Update post detail to database
         // const docRef = doc(db, 'posts', req.query.id as string)
-        const docSnap = await db
+        await db
             .collection('posts')
             .doc(req.query.id as string)
             .update({ ...req.body, updatedAt: Timestamp.fromDate(new Date()) })

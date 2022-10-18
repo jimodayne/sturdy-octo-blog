@@ -61,7 +61,8 @@ export default async function handler(
     }
     if (method === 'POST') {
         // Create new post
-        const token = req.headers.authorization
+        const authorization = req.headers.authorization
+        const token = authorization?.split(' ')[1]
         if (!token) {
             res.status(401).json({
                 data: null,
