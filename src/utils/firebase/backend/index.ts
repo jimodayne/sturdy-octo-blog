@@ -1,5 +1,6 @@
 import admin, { ServiceAccount } from 'firebase-admin'
-import serviceAccount from './blogs-2c885-firebase-adminsdk-9ur27-7b301628e8.json'
+
+const serviceAccount = process.env.BACKEND_SECRET_KEY || {}
 
 if (!admin.apps.length) {
     try {
