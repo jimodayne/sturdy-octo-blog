@@ -40,7 +40,7 @@ const PostForm = (props: PostFormProps) => {
                 <Input />
             </Form.Item>
             <Form.Item label="Content" name="content">
-                <Editor />
+                {/* <Editor /> */}
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
                 <Button type="primary" htmlType="submit">
