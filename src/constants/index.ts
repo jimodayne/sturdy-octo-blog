@@ -1,4 +1,8 @@
-export const DOMAIN_API_URL = '/api'
+const isDev = process.env.NODE_ENV !== 'production'
+
+export const DOMAIN_API_URL = isDev
+    ? 'http://localhost:3000/api'
+    : 'https://sturdy-octo-blog-git-develop-jimodayne.vercel.app/api'
 
 export interface ResponseData<T> {
     data: T
