@@ -70,11 +70,11 @@ const CMSLayout = (props: CMSLayoutProps) => {
                         {hasSider && (
                             <Sider>
                                 <div className="logo" />
-                                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                                    <Menu.Item key={'1'}>
-                                        <Link href="/cms/posts">Posts</Link>
-                                    </Menu.Item>
-                                </Menu>
+                                <div className="mt-8 px-8 bg-blue-500 py-3 cursor-pointer">
+                                    <Link href="/cms/posts">
+                                        <span className="text-white">Posts</span>
+                                    </Link>
+                                </div>
                             </Sider>
                         )}
                         <Layout className="site-layout">
