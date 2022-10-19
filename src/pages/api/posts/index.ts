@@ -53,7 +53,7 @@ export default async function handler(
             postsSnapshot = await db
                 .collection('posts')
                 .where('status', '==', true)
-                // .orderBy('updatedAt', 'desc')
+                .orderBy('updatedAt', 'desc')
                 // .limit(10)
                 .get()
         }
