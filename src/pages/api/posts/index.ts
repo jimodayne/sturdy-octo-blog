@@ -36,14 +36,27 @@ export default async function handler(
     res: NextApiResponse<ResponseData<any>>,
 ) {
     const { method } = req
+    const authorization = req.headers.authorization
+    const token = authorization?.split(' ')[1]
     if (method === 'GET') {
         // GET post from database
         const page = req.query.page ? Number(req.query.page) : 1
-        const postsSnapshot = await db
-            .collection('posts')
-            .orderBy('createdAt', 'desc')
-            .limit(10)
-            .get()
+        let postsSnapshot
+        if (token) {
+            postsSnapshot = await db
+                .collection('posts')
+                // .orderBy('updatedAt', 'desc')
+                // .where('status', '==', true)
+                // .limit(10)
+                .get()
+        } else {
+            postsSnapshot = await db
+                .collection('posts')
+                .where('status', '==', true)
+                // .orderBy('updatedAt', 'desc')
+                // .limit(10)
+                .get()
+        }
 
         const postsList = postsSnapshot.docs.map(doc => {
             return {
@@ -61,8 +74,6 @@ export default async function handler(
     }
     if (method === 'POST') {
         // Create new post
-        const authorization = req.headers.authorization
-        const token = authorization?.split(' ')[1]
 
         if (!token) {
             res.status(401).json({
@@ -91,6 +102,7 @@ export default async function handler(
             status: status || false,
             description: description || '',
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
+            updatedAt: admin.firestore.FieldValue.serverTimestamp(),
         })
         res.status(200).json({ message: 'success', code: 0, data: req.body })
     }
