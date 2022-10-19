@@ -3,8 +3,8 @@ import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 interface MyEditorProps {
-    value: string
-    onChange: (value: string) => void
+    value?: string
+    onChange?: (value: string) => void
 }
 
 export default function MyEditor(props: MyEditorProps) {
@@ -18,7 +18,7 @@ export default function MyEditor(props: MyEditorProps) {
                 onChange={(event: any, editor: any) => {
                     const data = editor.getData()
                     // console.log({ event, editor, data })
-                    onChange(data)
+                    onChange && onChange(data)
                 }}
             />
         </div>
