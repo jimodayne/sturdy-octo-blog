@@ -28,6 +28,7 @@ BACKEND_SECRET_KEY = <YOUR_BACKEND_SECRET_KEY>
 ```
 
 4. Run `npm install` to install the dependencies.
+5. Create an account using email/password in Firebase Authentication to use the CMS
 
 ## Deploment
 
@@ -35,7 +36,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### https://sturdy-octo-blog-git-develop-jimodayne.vercel.app
 
-## CMS Email/Password: please send me an email
+CMS Email/Password: Please contact me through email
 
 ## Getting Started
 
