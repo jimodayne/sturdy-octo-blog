@@ -35,6 +35,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ### https://sturdy-octo-blog-git-develop-jimodayne.vercel.app
 
+## CMS Email/Password: please send me an email
+
 ## Getting Started
 
 First, run the development server:
