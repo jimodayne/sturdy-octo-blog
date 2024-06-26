@@ -1,10 +1,30 @@
-# Software Development Skills: Full-Stack 2022-23
+# Sturdy Octo Blog
 
-1. Fullname: Tran Duc Thinh
-2. Student ID: 000799971
-3. Email: thinh.tran@student.lut.fi
-4. Learning diary: [Dropbox - Learning Diary](https://www.dropbox.com/s/mre6csmoilj121l/learning_diary.docx?dl=0)
-5. Demo Video: [Youtube](https://youtu.be/uoBLCeJeupg)
+Sturdy Octo Blog is a full-stack blogging platform built with a powerful tech stack, offering a seamless experience for both readers and content creators.
+
+
+<div align="left">
+      <a href="https://www.youtube.com/watch?v=uoBLCeJeupg">
+         <img src="https://img.youtube.com/vi/uoBLCeJeupg/0.jpg" style="width:100%;">
+      </a>
+</div>
+
+## Features
+### For Readers
+- Blazing-fast performance: Next.js-powered frontend ensures quick page loads and smooth navigation.
+- Responsive design: Enjoy a consistent and beautiful reading experience across devices.
+
+### For Authors
+- Intuitive CMS: Effortlessly create, edit, and publish blog posts with the React-based CMS.
+- Rich text editor: Format your content with ease using a WYSIWYG editor.
+- Draft publishing: Control when your posts go live.
+
+## Tech Stack
+- Frontend: Next.js 
+- Backend: Node.js, Firebase (database, authentication, storage)
+- CMS: React
+- Styling: Tailwind CSS, CSS Modules
+
 
 ## Preqrequisites
 
